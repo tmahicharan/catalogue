@@ -1,5 +1,7 @@
 FROM node:20.19.5-alpine3.22 AS build
 WORKDIR /opt/server
+RUN apk update && \
+    apk upgrade --no-cache
 COPY package.json .
 COPY *.js .
 RUN npm install
